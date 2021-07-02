@@ -1,0 +1,238 @@
+/**
+ * Static Styles
+ */
+a {
+    color: #2c9411;
+    text-decoration: none;
+    background-color: transparent;
+}
+a:hover {
+    color: #247d0d;
+    text-decoration: none;
+}
+.row{
+    margin-right: 0px!important;
+}
+
+/** Custom Header */
+.logo-image {
+    width: 100px;
+    cursor: pointer;
+}
+.top-nav {
+    background: #354750;
+}
+.custom-navbar {
+    background: #d9d5c5!important;
+    padding: 25px;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: #000000a8!important;
+    font-size: 20px;
+    font-weight: bold;
+    padding-right: 10px;
+    padding-left: 10px;
+    transition: .4s;
+    border-bottom: 3px solid transparent;
+}
+.navbar-light .navbar-nav .nav-link:hover {
+    border-bottom: 3px solid green;
+}
+.social-icon .fa {
+    font-size: 20px!important;
+    margin-right: 10px;
+    color: #ff7d66;
+    margin-right: 26px;
+    margin-top: 5px;
+}
+.btn-upload {
+    background: #f59a13;
+    color: #fff;
+    border-radius: 0px;
+    padding: 10px 35px;
+}
+.social-icon .fa-facebook {
+    color: #6363fb;
+}
+.social-icon .fa-twitter {
+    color: #17bdbd;
+}
+.dropdown-menu {
+    min-width: 12rem;
+    padding: 0;
+    margin: .125rem 0 0;
+    font-size: 1rem;
+    color: #212529;
+    background-color: #eee;
+    border-radius: 0px;
+    border-top: 2px solid green;
+}
+.dropdown-item {
+    padding: .5rem 1.5rem;
+}
+.user-icon {
+    width: 42px;
+    background: transparent;
+    margin-left: 10px;
+}
+/** Custom Header */
+
+
+/** Body  */
+img.d-block {
+    max-height: 400px;
+}
+.search-tree h4 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    color: #2c9411;
+}
+.btn-search {
+    background: #2c9411!important;
+    padding: 16px;
+    font-size: 30px;
+    border-radius: 0px;
+    margin-top: 30px;
+}
+.search-tree {
+    background: #eee;
+    margin-left: -14px;
+}
+
+
+/** Top Links */
+.homepage-link {
+    box-shadow: 2px 9px 23px -1px #2c941175;
+    margin-top: 24px;
+    padding: 20px;
+    text-align: center;
+    transition: .4s;
+    cursor: pointer;
+}
+.homepage-link:hover {
+    box-shadow: 2px 9px 23px -1px #2c9343;
+}
+.homepage-link i {
+    font-size: 60px;
+    color: #2c9411;
+}
+.homepage-link h3 {
+    font-family: 'Cairo', sans-serif;
+    font-size: 34px;
+    color: #0ead78;
+    font-weight: 600;
+}
+.homepage-link p {
+    color: gray;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 400;
+    margin-top: 20px;
+}/** Top Links */
+
+
+/** Tress */
+.single-tree {
+    box-shadow: 10px 7px 15px -1px #8cd07c8c;
+    margin-bottom: 20px;
+    border-top: 1px solid #8080801f;
+    padding: 10px;
+}
+.uploaded-trees h2 {
+    font-family: 'Cairo', sans-serif;
+    font-size: 30px;
+    margin: 20px;
+    display: inline-block;
+    padding-bottom: 10px;
+    border-bottom: 5px solid #2c941191;
+    color: #354750;
+}
+.single-tree h2 {
+    border-bottom: 0px solid!important;
+    margin: 0px;
+    color: #85c176;
+    font-size: 22px;
+}
+.btn-view {
+    font-family: 'Cairo', sans-serif;
+    border-radius: 0px;
+    margin-right: 20px;
+    padding: 10px 35px;
+    background: #89c695;
+    color: #0d1f27;
+    font-size: 15px;
+}
+/** Tress */
+
+/** Body  */
+
+
+/** Footer  */
+.footer-area {
+    background: #061f2b;
+    color: #ddd;
+    padding-top: 60px;
+    padding-bottom: 10px;
+}
+.footer-area ul {
+    list-style: none;
+    padding-left: 5px;
+}
+.footer-area a {
+    color: #7db17f;
+    font-size: 16px;
+}
+/** Footer  */
+
+/*** Login Page CSS **/
+.login-form {
+    background: #d9d5c5;
+    padding: 40px;
+}
+.login-form h4 {
+    color: #009100;
+    padding-bottom: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #8080802e;
+}
+.btn-login {
+    color: green;
+    border: 2px solid green;
+    font-weight: bold;
+}
+/*** Login Page CSS **/
+
+
+/** Tree Single Page */
+.tree-single-carousel img.d-block {
+    height: 300px;
+}
+ .tree-single h4, .tree-single h2{
+    font-family: 'Cairo', sans-serif;
+    margin: 20px;
+    display: inline-block;
+    padding-bottom: 10px;
+    padding-left: 0px;
+    border-bottom: 5px solid #2c941191;
+    color: #354750;
+ }
+/** Tree Single Page */
+
+
+
+/** Bootstrap Overrides */
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #2c9411;
+    border-color: #2c9411;
+}
+.form-control {
+    height: 40px;
+    line-height: 40px;
+    padding-left: 20px;
+    border: 1px solid #ced4da;
+    border-radius: 0px;
+}
+/** Bootstrap Overrides */
