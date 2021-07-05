@@ -40,6 +40,11 @@ class CategoryController extends Controller
      */
     public function store(CategoryForm $request)
     {
+        $request->validate([
+            'category_name' => 'required|alpha_dash|max:30|unique:categories,category_name',
+            'category_image' => 'required|image'
+        ]);
+
         if(request()->hasFile('category_image')){
             $file = request()->file('category_image');
             if($file->isValid()){
@@ -87,6 +92,11 @@ class CategoryController extends Controller
      */
     public function update(CategoryForm $request, Category $category)
     {
+        $request->validate([
+            'category_name' => 'required|alpha_dash|max:30|unique:categories,category_name,'.$category,
+            'category_image' => 'required|image'
+        ]);
+
         $category->update($request->except('_token', 'category_image') + [
             'slug' => Str::slug($request->category_name),
         ]);

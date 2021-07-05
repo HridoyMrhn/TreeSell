@@ -57,7 +57,7 @@
                         <img src="/backend/vendors/images/photo1.jpg" alt="">
                         @endguest
                         @auth
-                            <img src="{{ url('/uploads/student/'.(Auth::student()->student_image)) }}" alt="">
+                            <img src="{{ url('/uploads/user/'.(Auth::user()->image)) }}" alt="{{ Auth::user()->name  }}" class="rounded-circle" style="width:50px; height:50px; line-height:50px;">
                         @endauth
                     </span>
                     <span class="user-name">

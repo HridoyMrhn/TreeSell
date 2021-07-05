@@ -38,6 +38,12 @@ class BannerController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'banner_title' => 'required|max:40',
+            'banner_name' => 'required',
+            'banner_image' => 'required|image',
+        ]);
+
         if(request()->hasFile('banner_image')){
             $file = request()->file('banner_image');
             if($file->isValid()){
@@ -84,6 +90,12 @@ class BannerController extends Controller
      */
     public function update(Request $request, Banner $banner)
     {
+        $request->validate([
+            'banner_title' => 'required|max:40',
+            'banner_name' => 'required',
+            'banner_image' => 'required|image',
+        ]);
+
         $banner->update($request->except('_token', 'banner_image'));
         $file_name = $banner->banner_image;
         $file_path = public_path('uploads/banner/'.$file_name);

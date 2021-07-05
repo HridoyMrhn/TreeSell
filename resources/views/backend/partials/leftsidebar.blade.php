@@ -10,7 +10,7 @@
         <div class="sidebar-menu">
             <ul id="accordion-menu">
                 <li>
-                    <a href="{{ route('dashboard') }}" target="_blank" class="dropdown-toggle no-arrow active">
+                    <a href="{{ route('home') }}" target="_blank" class="dropdown-toggle no-arrow active">
                         <span class="micon dw dw-calendar1"></span><span class="mtext"> Frontend</span>
                     </a>
                 </li>

@@ -9,7 +9,7 @@
                 <a href="{{ route('register') }}" class="text-white mr-3"><i class="fa fa-user"></i> Sign Up</a>
             @endguest
             @auth
-                <a href="register.html" class="text-white mr-3"><i class="fa fa-user"></i> Profile</a>
+                <a href="{{ route('user.dashboard') }}" class="text-white mr-3"><i class="fa fa-user"></i> {{ auth()->user()->name }}</a>
                 <a href="{{ route('logout') }}" class="text-white mr-3"
                     onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
@@ -33,23 +33,30 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ route('home') }}">Home</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Recent Uploads</a>
+                        <a class="nav-link" href="{{ route('tree.recent') }}">Recent Uploads</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Categories
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Category 1</a>
-                            <a class="dropdown-item" href="#">Category 2</a>
-                            <a class="dropdown-item" href="#">Category 3</a>
-                            <a class="dropdown-item" href="#">Category 4</a>
+                           @foreach (categories() as $data)
+                           <a class="dropdown-item" href="{{ route('category', $data->slug) }}">{{ $data->category_name }}</a>
+                           @endforeach
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Filter by
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                           <a class="dropdown-item" href="{{ route('most.search') }}">Most Search</a>
+                           <a class="dropdown-item" href="{{ route('most.view') }}">Most View</a>
                         </div>
                     </li>
                     <li class="nav-item active">
@@ -61,15 +68,8 @@
                 </ul>
                 <ul class="navbar-nav navbar-right mr-right">
                     <li class="nav-item">
-                        <a href="upload.html" class="btn btn-warning btn-upload"><i class="fa fa-upload"></i> Upload Your Tree</a>
+                        <a href="{{ route('user.tree.upload') }}" class="btn btn-warning btn-upload"><i class="fa fa-upload"></i> Upload Tree</a>
                     </li>
-
-                    <li class="nav-item">
-                        <a href="profile.html" class="">
-                            <img src="assets/images/users/default.png" class="user-icon">
-                        </a>
-                    </li>
-
                 </ul>
             </div>
         </div>

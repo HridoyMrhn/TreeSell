@@ -16,7 +16,7 @@ class CreateMultipleImagesTable extends Migration
         Schema::create('multiple_images', function (Blueprint $table) {
             $table->id();
             $table->integer('tree_id');
-            $table->string('tree_image');
+            $table->string('tree_image')->nullable();
             $table->timestamps();
         });
     }

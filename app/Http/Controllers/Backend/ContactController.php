@@ -16,6 +16,14 @@ class ContactController extends Controller
 
 
     public function store(Request $request){
+        $request->validate([
+            'name' => 'required|max:20',
+            'email' => 'required|email',
+            'subject' => 'required',
+            'number' => 'required',
+            'message' => 'required',
+        ]);
+
         Contact::create($request->except('_token'));
         session()->flash('status', 'We recived Your Message!');
         return back();

@@ -14,7 +14,7 @@
 
 	<!-- GOogle Font -->
 	<link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
-
+    @yield('css')
 	<!-- Custom -->
 	<link href="{{ asset('frontend/css/custom.css') }}" rel="stylesheet">
 

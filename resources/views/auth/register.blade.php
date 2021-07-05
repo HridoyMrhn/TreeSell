@@ -9,7 +9,7 @@
             <div class="container mt-4 mb-4">
                 <div class="login-form">
                     <h4>Create New Account</h4>
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-md-6">
@@ -72,6 +72,20 @@
                                 <div class="form-group">
                                     <label for="password_confirmation">Confirm Password</label>
                                     <input id="password_confirmation" type="password" class="form-control" placeholder="Confirm Password"name="password_confirmation" required autocomplete="new-password">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="image">image</label>
+                                    <input id="image" type="file" class="form-control pb-5 " name="image">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="address">Your Address</label>
+                                    <input id="address" type="text" class="form-control" placeholder="Address Here" name="address">
                                 </div>
                             </div>
                         </div>

@@ -22,12 +22,16 @@ class CreateTreesTable extends Migration
             $table->string('tree_width')->nullable();
             $table->string('tree_height')->nullable();
             $table->double('tree_price');
-            $table->text('location')->nullable();
-            $table->text('tree_info')->nullable();
+            $table->integer('tree_quantity')->nullable();
+            $table->text('tree_location')->nullable();
+            $table->string('tree_info')->nullable();
+            $table->text('tree_description')->nullable();
+            $table->text('slug');
             $table->string('status')->default('pending');
+            $table->integer('total_search')->default(0);
+            $table->integer('most_view')->default(0);
             $table->boolean('is_approved')->default(0);
             $table->boolean('is_ecommerce')->default(0);
-            $table->text('slug');
             $table->timestamps();
         });
     }

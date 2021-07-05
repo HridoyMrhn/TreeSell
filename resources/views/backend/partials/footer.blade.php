@@ -14,6 +14,7 @@
     <script src="/backend/src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
     <script src="/backend/src/plugins/datatables/js/dataTables.responsive.min.js"></script>
     <script src="/backend/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+    @yield('js')
     <script src="/backend/vendors/scripts/dashboard.js"></script>
 </body>
 </html>
