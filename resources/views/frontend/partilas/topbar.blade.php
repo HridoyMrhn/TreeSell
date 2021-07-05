@@ -2,8 +2,8 @@
 <div class="header-nav">
     <div class="top-nav">
         <div class="float-right">
-            <a href="" class="social-icon"><i class="fa fa-facebook"></i></a>
-            <a href="" class="social-icon"><i class="fa fa-twitter"></i></a>
+            <a href="{{ url('https://facebook.com/HridoyMrhn') }}" target="_blank" class="social-icon"><i class="fa fa-facebook"></i></a>
+            <a href="{{ url('https://github.com/HridoyMrhn') }}" target="_blank" class="social-icon"><i class="fa fa-github"></i></a>
             @guest
                 <a href="{{ route('login') }}" class="text-white mr-3"><i class="fa fa-sign-in"></i> Sign In</a>
                 <a href="{{ route('register') }}" class="text-white mr-3"><i class="fa fa-user"></i> Sign Up</a>
@@ -24,7 +24,7 @@
     </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar ">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('home') }}">
+            <a class="navbar-brand" href="{{ route('index') }}">
                 <img src="{{ asset('uploads/others/logo.jpg') }}" class="logo-image rounded-circle" style="height: 60px; width:60px; line-height:60px">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,7 +34,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ route('home') }}">Home</a>
+                        <a class="nav-link" href="{{ route('index') }}">Home</a>
                     </li>
 
                     <li class="nav-item">
@@ -69,6 +69,9 @@
                 <ul class="navbar-nav navbar-right mr-right">
                     <li class="nav-item">
                         <a href="{{ route('user.tree.upload') }}" class="btn btn-warning btn-upload"><i class="fa fa-upload"></i> Upload Tree</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('cart.index') }}" class="btn btn-warning ml-1 text-white"><i class="fa fa-cart-plus"></i> {{ Cart::getTotalQuantity() }}</a>
                     </li>
                 </ul>
             </div>

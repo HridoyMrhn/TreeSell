@@ -4,6 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
+            <div class="mx-auto my-5 text-center">@include('frontend.layouts.components.status')</div>
+
             <div class="container mt-4 mb-4">
                 <div class="login-form">
                     <h4>Login Your Account</h4>

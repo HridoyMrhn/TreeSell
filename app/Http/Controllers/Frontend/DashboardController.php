@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     public function dashboard(){
         $user = User::where('id', Auth::id())->first();
         $trees = $user->trees()->paginate(1);

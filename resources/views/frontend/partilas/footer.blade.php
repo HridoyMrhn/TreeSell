@@ -18,7 +18,7 @@
                 <div class="col-md-3">
                     <h4>Top Links</h4><hr>
                     <ul>
-                        <li><a href="{{ route('home') }}">Home</a></li>
+                        <li><a href="{{ route('index') }}">Home</a></li>
                         <li><a href="{{ route('tree.recent') }}">All Tree</a></li>
                         <li><a href="{{ route('about') }}">About Us</a></li>
                         <li><a href="{{ route('contact') }}">Contact Us</a></li>
@@ -29,7 +29,7 @@
                 <div class="col-md-3">
                     <h4>Top Links</h4><hr>
                     <ul>
-                        <li><a href="{{ route('home') }}">Home</a></li>
+                        <li><a href="{{ route('index') }}">Home</a></li>
                         <li><a href="{{ route('login') }}">Login</a></li>
                         <li><a href="{{ route('register') }}">Create New Account</a></li>
                         <li><a href="">Privacy Policy</a></li>

@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Backend\TreeController;
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Backend\BannerController;
 use App\Http\Controllers\Frontend\PagesController;
 use App\Http\Controllers\Backend\ContactController;
@@ -23,13 +25,12 @@ use App\Http\Controllers\Frontend\FrontTreeController;
 */
 
 Auth::routes(['verify' => true]);
-
-
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 // ====================== All Frontend Controller ======================
 
-Route::get('/', [PagesController::class, 'index'])->name('home');
+Route::get('/', [PagesController::class, 'index'])->name('index');
 Route::get('/about-us', [PagesController::class, 'about'])->name('about');
 Route::get('/contact-us', [PagesController::class, 'contact'])->name('contact');
 Route::get('category/{slug}', [PagesController::class, 'category'])->name('category');
@@ -56,6 +57,9 @@ Route::prefix('dashboard')->group(function(){
     Route::get('/', [DashboardController::class, 'dashboard'])->name('user.dashboard')->middleware('verified');
     Route::post('/update/{id}', [DashboardController::class, 'dashboardUpdate'])->name('user.dashboard.update');
 });
+
+// Cart Controller
+Route::resource('cart', CartController::class);
 
 
 

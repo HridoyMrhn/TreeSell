@@ -14,9 +14,14 @@ use Illuminate\Support\Facades\Auth;
 class FrontTreeController extends Controller
 {
     public function upload(){
-        return view('frontend.layouts.tree.upload', [
-            'categories' => Category::all()
-        ]);
+        if(Auth::check()){
+            return view('frontend.layouts.tree.upload', [
+                'categories' => Category::all()
+            ]);
+        } else{
+            session(['redirect_route' => 'user.tree.upload']);
+            return redirect()->route('login')->with('bad_status', 'You are not Authentic User!');
+        }
     }
 
 
@@ -55,10 +60,7 @@ class FrontTreeController extends Controller
 
     public function treeUpdate(Request $request, $id){
         $tree = Tree::findOrFail($id);
-        $tree->update($request->except('_token', 'tree_image') + [
-            'user_id' => Auth::id(),
-            'slug' => Str::slug($request->tree_name).'_'.Str::random(4),
-        ]);
+        $tree->update($request->except('_token', 'tree_image'));
 
         if(!empty($request->hasFile('tree_image'))){
             foreach($tree->multipleImage as $data){

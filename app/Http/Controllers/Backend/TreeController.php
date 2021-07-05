@@ -102,10 +102,7 @@ class TreeController extends Controller
     public function update(Request $request, $id)
     {
         $tree = Tree::find($id);
-        $tree->update($request->except('_token', 'tree_image') + [
-            'user_id' => Auth::id(),
-            'slug' => Str::slug($request->tree_name).'_'.Str::random(4),
-        ]);
+        $tree->update($request->except('_token', 'tree_image'));
 
         if(!empty(request()->hasFile('tree_image'))){
             foreach($tree->multipleImage as $data){

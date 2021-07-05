@@ -19,7 +19,7 @@
                 <p class="uploaded-at">
                     <strong>Uploaded at : </strong> {{ $data->created_at->diffForHumans() }}
                 </p>
-                <div class="small-description">{{ $data->tree_info }}</div>
+                <div class="small-description mb-3">{{ $data->tree_info }}</div>
                 @if (Route::is('user.dashboard'))
                     <p class="float-right">
                         <div class="btn btn-group-sm ">
@@ -161,7 +161,12 @@
                     </div>
                 @else
                     <p class="float-right">
-                        <a href="{{ route('user.tree.show', $data->slug) }}" class="btn btn-info btn-view"> View Details
+                        <form action="{{ route('cart.store', $data->id) }}" method="post" class="d-inline">
+                            @csrf
+                            <input type="text" name="tree_id" value="{{ $data->id }}">
+                            <button type="submit" class="btn btn-warning"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+                        </form>
+                        <a href="{{ route('user.tree.show', $data->slug) }}" class="btn btn-info"> View Details
                             <i class="fa fa-arrow-right"></i></a>
                     </p>
                 @endif
