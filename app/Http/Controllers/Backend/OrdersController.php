@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Http\Controllers\Backend;
+
+use App\Http\Controllers\Controller;
+use App\Models\Order;
+use Illuminate\Http\Request;
+
+class OrdersController extends Controller
+{
+    public function index(){
+        return view('backend.layouts.order.index', [
+            'order' => Order::all()
+        ]);
+    }
+
+
+    public function show($id){
+        // dd($id);
+        return view('backend.layouts.order.show', [
+            'order_details' => Order::findOrFail($id)
+        ]);
+    }
+}

@@ -53,6 +53,16 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ route('cupon.index') }}" class="dropdown-toggle no-arrow @yield('cupon')">
+                        <span class="micon dw dw-calendar1"></span><span class="mtext"> Cupon</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('order.index') }}" class="dropdown-toggle no-arrow @yield('cupon')">
+                        <span class="micon dw dw-calendar1"></span><span class="mtext"> Order</span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{ route('contact.index') }}" class="dropdown-toggle no-arrow @yield('contact')">
                         <span class="micon dw dw-calendar1"></span><span class="mtext"> Contact</span>
                     </a>

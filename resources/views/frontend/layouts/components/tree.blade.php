@@ -163,7 +163,7 @@
                     <p class="float-right">
                         <form action="{{ route('cart.store', $data->id) }}" method="post" class="d-inline">
                             @csrf
-                            <input type="text" name="tree_id" value="{{ $data->id }}">
+                            <input type="hidden" name="tree_id" min="1" value="{{ $data->id }}">
                             <button type="submit" class="btn btn-warning"><i class="fa fa-cart-plus"></i> Add to Cart</button>
                         </form>
                         <a href="{{ route('user.tree.show', $data->slug) }}" class="btn btn-info"> View Details

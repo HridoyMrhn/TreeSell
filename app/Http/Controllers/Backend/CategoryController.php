@@ -17,7 +17,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('backend.layouts.category.index', [
+        return view('backend.layouts.category.i', [
             'categories' => Category::with('subcategory')->get(),
         ]);
     }
@@ -40,10 +40,10 @@ class CategoryController extends Controller
      */
     public function store(CategoryForm $request)
     {
-        $request->validate([
-            'category_name' => 'required|alpha_dash|max:30|unique:categories,category_name',
-            'category_image' => 'required|image'
-        ]);
+        // $request->validate([
+        //     'category_name' => 'required|alpha_dash|max:30|unique:categories,category_name',
+        //     'category_image' => 'required|image'
+        // ]);
 
         if(request()->hasFile('category_image')){
             $file = request()->file('category_image');

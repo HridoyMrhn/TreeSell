@@ -6,7 +6,6 @@
 
 <div class="row justify-content-center">
     <div class="col-md-8">
-
         <div class="mx-auto my-5 text-center">@include('frontend.layouts.components.status')</div>
 
         <div class="container mt-4 mb-4">
