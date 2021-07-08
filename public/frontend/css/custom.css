@@ -2,13 +2,17 @@
  * Static Styles
  */
 a {
-    color: #2c9411;
+    color: #000;
     text-decoration: none;
     background-color: transparent;
 }
 a:hover {
     color: #247d0d;
     text-decoration: none;
+    font-size: 16px;
+}
+a.active{
+    color: #fff;
 }
 .row{
     margin-right: 0px!important;

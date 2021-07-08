@@ -20,7 +20,7 @@
                     <strong>Uploaded at : </strong> {{ $data->created_at->diffForHumans() }}
                 </p>
                 <div class="small-description mb-3">{{ $data->tree_info }}</div>
-                @if (Route::is('user.dashboard'))
+                @if (Route::is('user.dashboard.myTree'))
                     <p class="float-right">
                         <div class="btn btn-group-sm ">
                             <a href="#editModal{{ $data->slug }}" data-toggle="modal"  class="btn btn-dark btn-view">

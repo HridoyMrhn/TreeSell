@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
+use App\Models\Tree;
 use App\Models\User;
+use App\Models\Order;
+// use Barryvdh\DomPDF\PDF as PDF;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
@@ -16,9 +20,9 @@ class DashboardController extends Controller
 
 
     public function dashboard(){
-        $user = User::where('id', Auth::id())->first();
-        $trees = $user->trees()->paginate(1);
-        return view('frontend.layouts.dashboard.dashboard', compact('user', 'trees'));
+        return view('frontend.layouts.dashboard.dashboard', [
+            'user' => User::where('id', Auth::id())->first()
+        ]);
     }
 
 
@@ -42,4 +46,37 @@ class DashboardController extends Controller
         }
         return back()->with('success_status', 'Profile has been Updated');
     }
+
+
+    public function myTree(){
+        // $trees = $user->trees()->paginate(1) ;
+        return view('frontend.layouts.dashboard.my-trees', [
+            'trees' => Tree::where('user_id', Auth::id())->paginate(10)
+        ]);
+    }
+
+
+    public function myOrder(){
+        // echo $orders = Order::where('user_id', Auth::id())->get();
+        return view('frontend.layouts.dashboard.my-orders', [
+            'orders' => Order::where('user_id', Auth::id())->get()
+        ]);
+    }
+
+
+    public function orderShow($id){
+        // dd(OrderDetails::where('order_id',$id));
+        return view('frontend.layouts.dashboard.order-show', [
+            'order_details' => Order::findOrFail($id)
+        ]);
+    }
+
+
+    public function invoiceDownload($id){
+        $order_details = Order::findOrFail($id);
+        $pdf = PDF::loadView('frontend.layouts.dashboard.order-show', compact('order_details'));
+        return $pdf->download('invoice.pdf');
+    }
+
+
 }

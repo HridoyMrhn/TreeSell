@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\OrderDetails;
 use Illuminate\Http\Request;
 
 class OrdersController extends Controller
@@ -20,5 +21,13 @@ class OrdersController extends Controller
         return view('backend.layouts.order.show', [
             'order_details' => Order::findOrFail($id)
         ]);
+    }
+
+
+    public function destory($id){
+        $Order = Order::findOrFail($id);
+        $Order->orderDetails()->delete();
+        $Order->delete();
+        return back()->with('bad_status', 'Order has been Deleted!');
     }
 }

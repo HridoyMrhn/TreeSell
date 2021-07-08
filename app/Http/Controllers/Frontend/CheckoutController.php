@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\OrderDetails;
 use App\Models\Tree;
 use Carbon\Carbon;
+// use Darryldecode\Cart\Cart as Cart;
 use Illuminate\Support\Facades\Auth;
 
 class CheckoutController extends Controller
@@ -51,6 +52,7 @@ class CheckoutController extends Controller
                 'product_quantity' => $cart->quantity,
             ]);
         }
+        Cart::clear();
         session()->flash('success_status', 'Order has been stored Successfully!');
         return redirect()->route('index');
     }

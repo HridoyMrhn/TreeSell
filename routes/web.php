@@ -57,6 +57,10 @@ Route::prefix('tree')->group(function() {
 Route::prefix('dashboard')->group(function(){
     Route::get('/', [DashboardController::class, 'dashboard'])->name('user.dashboard')->middleware('verified');
     Route::post('/update/{id}', [DashboardController::class, 'dashboardUpdate'])->name('user.dashboard.update');
+    Route::get('/my-tree', [DashboardController::class, 'myTree'])->name('user.dashboard.myTree');
+    Route::get('/my-order', [DashboardController::class, 'myOrder'])->name('user.dashboard.myOrder');
+    Route::get('/order/show/{id}', [DashboardController::class, 'orderShow'])->name('user.dashboard.orderShow');
+    Route::get('/invoice/download/{id}', [DashboardController::class, 'invoiceDownload'])->name('user.invoice.download');
 });
 
 // Cart Controller
@@ -106,4 +110,5 @@ Route::prefix('admin')->group(function (){
     // Orders Controller
     Route::get('order', [OrdersController::class, 'index'])->name('order.index');
     Route::get('order/show/{id}', [OrdersController::class, 'show'])->name('order.show');
+    Route::post('order/delete/{id}', [OrdersController::class, 'destory'])->name('order.destory');
 });

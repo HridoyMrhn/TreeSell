@@ -162,8 +162,8 @@ th {
     font-size: .75em;
     border: 0 none;
 }
-.table-main {
-
+.grand{
+    font-size: 18px !important;
 }
 footer {
     border-top: 1px solid #eeeeee;;
