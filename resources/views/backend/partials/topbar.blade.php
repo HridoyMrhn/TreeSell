@@ -53,12 +53,11 @@
             <div class="dropdown">
                 <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
                     <span class="user-icon">
-                        @guest
-                        <img src="/backend/vendors/images/photo1.jpg" alt="">
-                        @endguest
-                        @auth
-                            <img src="{{ url('/uploads/user/'.(Auth::user()->image)) }}" alt="{{ Auth::user()->name  }}" class="rounded-circle" style="width:50px; height:50px; line-height:50px;">
-                        @endauth
+                        @if (!auth()->user()->image)
+                            <img src="{{ asset('uploads/user/'.auth()->user()->image) }}" alt="" style="width: 60px; height:60px; line-height:60px">
+                        @else
+                            <img src="{{ asset('uploads/user/default.png') }}" alt="" style="width: 60px; height:60px; line-height:60px">
+                        @endif
                     </span>
                     <span class="user-name">
                         @isset(Auth::user()->name)
@@ -67,8 +66,7 @@
                     </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                    <a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profile</a>
-                    <a class="dropdown-item" href=""><i class="dw dw-logout"></i> Log Out</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}"><i class="dw dw-logout"></i> Log Out</a>
                 </div>
             </div>
         </div>

@@ -17,7 +17,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('backend.layouts.category.i', [
+        return view('backend.layouts.category.index', [
             'categories' => Category::with('subcategory')->get(),
         ]);
     }

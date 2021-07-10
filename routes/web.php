@@ -81,7 +81,7 @@ Route::post('checkout/store', [CheckoutController::class, 'store'])->name('check
 
 
 // ====================== All Backend Controller ======================
-Route::prefix('admin')->group(function (){
+Route::prefix('admin')->middleware('admin')->group(function (){
 
     // Dashboard Controller
     Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');

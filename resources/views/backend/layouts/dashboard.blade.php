@@ -7,23 +7,30 @@
 <div class="card-box pd-20 height-100-p mb-30">
     <div class="row align-items-center">
         <div class="col-md-4">
-            <img src="/uploads/department/20210416050427.jpg" alt="">
-            {{-- <img src="{{ url('/uploads/student/'.$student->student_image) }}" alt=""> --}}
+            @auth
+                @if (!auth()->user()->image)
+                    <img src="{{ asset('uploads/user/'.auth()->user()->image) }}" alt="" style="width: 200px; height:200px; line-height:200px">
+                @else
+                    <img src="{{ asset('uploads/user/default.png') }}" alt="" style="width: 200px; height:200px; line-height:200px">
+                @endif
+            @else
+                <img src="{{ asset('uploads/user/default.png') }}" alt="" style="width: 200px; height:200px; line-height:200px">
+            @endauth
         </div>
         <div class="col-md-8">
             <h4 class="font-20 weight-500 mb-10 text-capitalize">
                 Welcome back
                 <div class="weight-600 font-30 text-blue">
-                    {{-- {{ Auth::user()->name }} --}}
-                    {{-- @isset(Auth::user()->name)
+                    @if (isset(Auth::user()->name))
                         {{ Auth::user()->name }}
-                    @endisset --}}
-                    Md Hridoy
+                    @else
+                        Hi, Guest
+                    @endif
                 </div>
             </h4>
-            <p class="font-18 max-width-600">Lorem ipsum dolor sit amet, consectetur adipisicing
-                elit. Unde hic non repellendus debitis iure, doloremque assumenda. Autem modi,
-                corrupti, nobis ea iure fugiat, veniam non quaerat mollitia animi error corporis.
+
+            <p class="font-18 max-width-600">
+                {{-- {{ Auth::user()->about }} --}}
             </p>
         </div>
     </div>
